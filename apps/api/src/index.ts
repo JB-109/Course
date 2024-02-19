@@ -18,5 +18,8 @@ const server = app.listen(port, () => {
   log(`Server Started at Port ${port}`);
 });
 
-// END-POINTS
+//ADMIN END-POINTS
 app.use("/admin", endPoints);
+
+// //USER END-POINTS
+// app.use("/user", userEndPoints);
