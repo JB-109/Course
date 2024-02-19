@@ -10,6 +10,8 @@
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.6",
+    "@types/jsonwebtoken": "^9.0.5",
     "prettier": "^3.1.1",
     "turbo": "latest"
   },
@@ -20,5 +22,16 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.10",
+    "axios": "^1.6.7",
+    "cookie-parser": "^1.4.6",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.1.3",
+    "react-router-dom": "^6.22.1",
+    "recoil": "^0.7.7"
+  }
 }

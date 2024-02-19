@@ -1,27 +1,32 @@
-import * as React from "react";
-import "./styles.css";
-import { CounterButton, Link } from "@repo/ui";
+import React from 'react';
+import Appbar from '@repo/ui/src/appbar';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { routes } from '@repo/ui/src/routes';
+import { RecoilRoot } from "recoil"; 
 
-function App(): JSX.Element {
-  return (
-    <div className="container">
-      <h1 className="title">
-        Admin <br />
-        <span>Kitchen Sink</span>
-      </h1>
-      <CounterButton />
-      <p className="description">
-        Built With{" "}
-        <Link href="https://turbo.build/repo" newTab>
-          Turborepo
-        </Link>
-        {" & "}
-        <Link href="https://vitejs.dev/" newTab>
-          Vite
-        </Link>
-      </p>
+function App() {
+  
+  return (  
+    <div style={{
+      backgroundColor: "#195e83",
+      margin: 0,
+      padding: 0,
+      height: "100vh",
+      width: "100vw"
+    }}>
+      <RecoilRoot>
+        <Router>
+          <Appbar/>
+            <Routes>
+              {routes.map((route, index) => (
+                <Route key={index} {...route} />
+              ))}
+            </Routes>
+        </Router>
+      </RecoilRoot>
     </div>
-  );
+  )
 }
 
-export default App;
+
+export default App;           
