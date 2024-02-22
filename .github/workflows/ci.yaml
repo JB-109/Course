@@ -1,6 +1,6 @@
 name: Deploy
 
-on: 
+on:
   push:
     branches:
       - master
@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    steps: 
+    steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
@@ -22,7 +22,7 @@ jobs:
     - name: Prepare SSH Key
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      run: 
+      run: |
         echo "$SSH_PRIVATE_KEY" > keyfile
         chmod 600 keyfile
         ls -l keyfile  # Log information about the keyfile
@@ -34,7 +34,7 @@ jobs:
     - name: SSH and deploy
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      run: 
+      run: |
         echo "$SSH_PRIVATE_KEY" > keyfile
         chmod 600 keyfile
         mkdir -p ~/.ssh
