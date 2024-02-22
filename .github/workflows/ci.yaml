@@ -9,10 +9,27 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-
     steps: 
     - name: Checkout code
       uses: actions/checkout@v4
+
+    - name: Display SSH Private Key
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      run: 
+        echo "SSH Private Key: $SSH_PRIVATE_KEY"
+
+    - name: Prepare SSH Key
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      run: 
+        echo "$SSH_PRIVATE_KEY" > keyfile
+        chmod 600 keyfile
+        ls -l keyfile  # Log information about the keyfile
+
+    - name: Display Known Hosts
+      run: 
+        cat ~/.ssh/known_hosts  # Display contents of known_hosts file
 
     - name: SSH and deploy
       env:
@@ -22,4 +39,12 @@ jobs:
         chmod 600 keyfile
         mkdir -p ~/.ssh
         cp known_hosts ~/.ssh/known_hosts
-        ssh -v -t -i keyfile ubuntu@JB109.tech "bash deploy.sh"  
+
+        # Additional Debugging Information
+        whoami
+        pwd
+        ls -l
+        cat keyfile
+        cat ~/.ssh/known_hosts
+
+        ssh -v -t -i keyfile ubuntu@JB109.tech "bash deploy.sh"
