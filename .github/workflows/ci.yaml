@@ -25,6 +25,7 @@ jobs:
 
     - name: Display Known Hosts
       run:
+        cat known_hosts
         cp known_hosts ~/.ssh/known_hosts
         cat ~/.ssh/known_hosts  # Display contents of known_hosts file
 
