@@ -17,7 +17,7 @@ jobs:
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       run: 
-        echo "$SSH_Private_Key"
+        cat "$SSH_Private_Key"
 
     - name: Prepare SSH Key
       env:
@@ -28,7 +28,8 @@ jobs:
         ls -l keyfile  # Log information about the keyfile
 
     - name: Display Known Hosts
-      run: 
+      run:
+        cp known_hosts ~/.ssh/known_hosts
         cat ~/.ssh/known_hosts  # Display contents of known_hosts file
 
     - name: SSH and deploy
@@ -38,7 +39,7 @@ jobs:
         echo "$SSH_PRIVATE_KEY" > keyfile
         chmod 600 keyfile
         mkdir -p ~/.ssh
-        cp known_hosts ~/.ssh/known_hosts
+        
 
         # Additional Debugging Information
         whoami
