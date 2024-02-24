@@ -1,20 +1,19 @@
-import { Typography } from "@mui/material"
+import { Typography, Box, AppBar, IconButton, Button, ThemeProvider } from "@mui/material"
 import { currentUser } from "./atoms/user"
 import { useRecoilValue } from "recoil";
 import React from "react";
+import CircularProgress from '@mui/joy/CircularProgress';
+import { LoadingOverlay } from "./isLoading";
+import Card from '@mui/joy/Card';
+import CardCover from '@mui/joy/CardCover';
+import CardContent from '@mui/joy/CardContent';
+import Typography1 from '@mui/joy/Typography';
+
 
 function Dashboard() {
 
     return (
-        <div style={{
-            backgroundColor: "white",
-            height: "100vh",
-            width: "100vw",
-            margin: 0,
-            padding: 0
-        }}>
-            <GreyTopper/>
-        </div>
+        <GreyTopper/>
     )
 }
 

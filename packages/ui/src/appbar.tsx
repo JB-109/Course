@@ -5,6 +5,8 @@ import { useRecoilState } from "recoil";
 import { currentUser } from "./atoms/user";
 import React from "react";
 import { usefetchUser } from "../src/api/api";
+import  { LoadingOverlay } from "./isLoading";
+import { Stack, Box, Divider, Button } from '@mui/joy';
 
 
 function Appbar() {
@@ -18,7 +20,7 @@ function Appbar() {
     }, []);
        
     if(user.isLoading) {
-        return null;
+        <LoadingOverlay/>
     }
         if(user.user) {  
         return (
@@ -75,14 +77,23 @@ function Appbar() {
             display: "flex",
             justifyContent: "flex-end"
         }}>
-                <button 
+            <Box sx={{ width: '100%' }}>
+      <Stack
+        direction="row"
+        divider={<Divider orientation="vertical" />}
+        spacing={1}
+        justifyContent="flex-end"
+      > 
+                <Button size="sm" variant="soft"
                     onClick = {() => {navigate("/Signup");}} 
-                    style={{marginRight: "4px"}}> SIGN UP
-                </button>
-                <button 
+                    style={{marginTop: "4px"}}> SIGN UP
+                </Button>
+                <Button size="sm" variant="soft"
                     onClick = {() => {navigate("/Signin");}}
-                    style = {{marginRight: "4px"}}> SIGN IN
-                </button>
+                    style = {{marginRight: "4px", marginTop: "4px"}}> SIGN IN
+                </Button>
+      </Stack>
+    </Box>
         </div>
         )
         }

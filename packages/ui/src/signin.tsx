@@ -41,7 +41,7 @@ function Signin() {
           justifyContent: "center"
         }}>
 
-        <Card variant="outlined" style={{width: 400, height: 190, padding: "20px"}}>
+        <Card variant="outlined" style={{color: "black", width: 400, height: 190, padding: "20px"}}>
 
           <TextField fullWidth={true} id="Username" label="Username" variant="outlined" onBlur={(e) => {
             setusername(e.target.value);

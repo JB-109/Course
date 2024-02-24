@@ -1,10 +1,8 @@
 {
-  "exclude": ["node_modules"],
   "extends": "@repo/typescript-config/vite.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "dist",
-    "jsx": "preserve"
+    "outDir": "dist"
   },
   "include": ["src"]
 }

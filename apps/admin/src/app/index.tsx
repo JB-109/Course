@@ -2,13 +2,14 @@ import React from 'react';
 import Appbar from '@repo/ui/src/appbar';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { routes } from '@repo/ui/src/routes';
-import { RecoilRoot } from "recoil"; 
+import { RecoilRoot } from "recoil";
+ 
 
 function App() {
   
   return (  
     <div style={{
-      backgroundColor: "#195e83",
+      backgroundColor: "white",
       margin: 0,
       padding: 0,
       height: "100vh",
