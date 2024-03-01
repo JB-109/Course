@@ -19,6 +19,10 @@ const server = app.listen(port, () => {
 });
 
 //ADMIN END-POINTS
+app.use("/", (req, res) => {
+  res.json("Fuck oFF")
+})
+
 app.use("/admin", endPoints);
 
 // //USER END-POINTS
